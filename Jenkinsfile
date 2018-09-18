@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage('test') {
       steps {
@@ -8,7 +8,7 @@ pipeline {
     }
     stage('build') {
       steps {
-        sh 'echo hi'
+        sh 'mvn -Dtest=Account clean test -Dcucumber.options="--tags @AIL"'
       }
     }
   }
